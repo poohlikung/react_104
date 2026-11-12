@@ -1,14 +1,12 @@
 import React from 'react'
-import Title from "./components/Title";
-import Book from "./components/Book"
+import ListBasic from './components/ListBasic'
+import FormInput from './components/FormInput'
 const App = () => {
   return (
-    
-    <div>
-
-      <Title/>
-      <Book/>
-    </div>
+    <>
+    <FormInput/>
+    {/* <ListBasic/>? */}
+    </>
   )
 }
 
