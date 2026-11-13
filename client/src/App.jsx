@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 
-import FetchBasic from './components/FetchBasic'
+import Conditionbasic from "./components/Conditionbasic";
 const App = () => {
   return (
     <>
-<FetchBasic/>
-</>    
-  )
-}
+     <Conditionbasic/>
+    </>
+  );
+};
 
-export default App
+export default App;

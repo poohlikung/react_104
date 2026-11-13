@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from "react";
 const url = "https://6a9463640e895b145e5f6c44.mockapi.io/todos";
 const FetchBasic = () => {
-  const [user, setUser] = useState([]);
-  
-  
+  const [data, setData] = useState([]);
   const fetchUrl = async () => {
-    const resp = await fetch(url);
-    const data = await resp.json();
-    setUser(data);
+    try {
+      const resp = await fetch(url);
+      const user = await resp.json();
+      setData(user);
+      console.log(user);
+    } catch (error) { 
+      console.log(error.message);
+    }
   };
   useEffect(() => {
     fetchUrl();
   }, []);
-  return <div>FetchBasic
 
-    {user.map((item,index)=>(
-        
-        <div key={index}>
-            <p>ID: {item.id}</p>
-            <p>name: {item.name}</p>
-            </div>
+  return <div>
+    {data.map((item,index)=>(
+      <div key={index}>
+      <p>name : {item.name}</p>
+      </div>
     ))}
   </div>;
 };

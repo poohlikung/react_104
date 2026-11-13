@@ -1,53 +1,33 @@
 import React, { useState } from "react";
 
 const FormInput = () => {
-  const [value,setValue] = useState({
-    title:"",
-    address:"",
-  })
-const [wordSubmit,setWordSubmit] = useState(true)
- 
-  const hdlOnchange = (e) =>{
-    // save all change
-    setValue({
-
-      ...value,
+  const [data, setData] = useState({
+    title: "",
+    address: "",
+  });
+  const onChange = (e) => {
+    setData({
+      ...data,
       [e.target.name]: e.target.value,
-    })
-  }
-  const hdlSubmit = (e) => {
-    e.preventDefault();
-    setWordSubmit(!wordSubmit)
-    console.log(value);
-    console.log(wordSubmit);
+    });
   };
-  
-  return <>
-  
-  <h1>{value.title}</h1>
 
-  <form onSubmit={hdlSubmit}>
-    <label >
-      title: 
-    </label>
-    <input type="text"
-    value={value.title}
-    onChange={hdlOnchange}
-    name="title"
-    />
-    {/* address */}
-
-       <label >
-      address: 
-    </label>
-    <input type="text"
-    value={value.address}
-    onChange={hdlOnchange}
-    name="address"
-    />
-    <button type="submit">{wordSubmit?"submit":"nosubmit"}</button>
-  </form>
-  </>;
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(data);
+  };
+  return (
+    <div>
+      <h1>{data.title}</h1>
+      <form onSubmit={onSubmit}>
+        <label>title: </label>
+        <input type="text" name="title" onChange={onChange} />
+        <label>address: </label>
+        <input type="text" name="address" onChange={onChange} />
+        <button>submit</button>
+      </form>
+    </div>
+  );
 };
 
 export default FormInput;
