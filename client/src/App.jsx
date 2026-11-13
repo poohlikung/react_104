@@ -1,11 +1,14 @@
 import React from 'react'
+import FormInput from "./components/FormInput"
+import Kaika from './components/Kaika'
 import ListBasic from './components/ListBasic'
-import FormInput from './components/FormInput'
 const App = () => {
   return (
     <>
-    <FormInput/>
-    {/* <ListBasic/>? */}
+      <FormInput/>
+      <Kaika firstname="sorawit" lastname="wansen" />
+      
+      <ListBasic></ListBasic>
     </>
   )
 }
